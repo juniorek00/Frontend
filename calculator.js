@@ -31,18 +31,21 @@ function clearScreen() {
 }
 
 const fetchData = async (valueA, valueB, operator) => {
-  const response = await fetch("http://localhost:7000/test", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      a: valueA,
-      b: valueB,
-      operand: operator,
-    }),
-  });
+  const response = await fetch(
+    "https://zaliczenieprojektujs.herokuapp.com/test",
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        a: valueA,
+        b: valueB,
+        operand: operator,
+      }),
+    }
+  );
   const data = await response.json();
   return data.result;
 };
